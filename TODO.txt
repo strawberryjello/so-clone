@@ -1,0 +1,52 @@
+5 jan 2015 (last updated)
+----------
+
+Models
+======
+- Question
+  - title, body, timestamp, date modified
+  - has many: tags, answers
+- Answer
+  - body, timestamp, date modified
+- User
+  - username, password, email
+  - has many: questions, answers
+- Tag
+  - name
+
+Controllers
+===========
+- Question
+  - list all, view, new, save, edit, update (, delete -> cascade)
+- Answer
+  - list all (for a question), new, save, edit, update (, delete)
+- User
+  - list all, new, save, edit, update (, delete -> cascade)
+- Tag
+  - list all, list all questions, new, edit (, delete)
+
+Views
+=====
+- landing page (all questions?)
+- new/edit question (partial)
+  - add (can create new)/remove tags
+- view question
+  - split this up into partials (question, answers, answer form)
+- edit answer (see new answer partial)
+- user sign up page
+
+Tests
+=====
+- models
+  - validation
+  - persistence? how is this tested?
+- controllers
+  - logic
+
+Advanced features
+=================
+- reputation
+- votes for answers
+- user mentions
+- best answer
+- comments (questions and answers)
