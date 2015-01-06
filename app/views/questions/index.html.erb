@@ -4,7 +4,12 @@
 <table>
   <% @questions.each do |question| %>
   <tr>
-    <td><%= question.title %></td>
+    <td>
+      <!-- alternatively: link_to question do -->
+      <%= link_to question_path(question) do %>
+      <%= question.title %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </table>
