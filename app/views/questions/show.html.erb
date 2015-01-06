@@ -1,5 +1,7 @@
 <h3><%= @question.title %></h3>
 
+<%= link_to 'Edit question', edit_question_path(@question) %>
+
 <p><%= @question.text %></p>
 
 <p>Tags</p>
