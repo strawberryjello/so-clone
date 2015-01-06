@@ -1,6 +1,8 @@
 <h3><%= @question.title %></h3>
 
+<!-- make these links user-only -->
 <%= link_to 'Edit question', edit_question_path(@question) %>
+<%= link_to 'Delete question', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %>
 
 <p><%= @question.text %></p>
 
