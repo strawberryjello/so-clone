@@ -4,6 +4,7 @@
 Issues
 ======
 - rendering newlines in question/answer text
+- adding foreign keys to existing tables (ZOMG)
 
 Models
 ======
@@ -25,9 +26,9 @@ Controllers
 - Answer
   - list all (for a question), new, save, edit, update (, delete)
 - User
-  - list all, new, save, edit, update (, delete -> cascade)
+  - list all, new, save, edit, update (, delete -> preserve questions/answers? (but show user as deleted))
 - Tag
-  - list all, list all questions, new, edit (, delete)
+  - list all, list all questions, new, edit (, delete -> questions will be untagged)
 
 Views
 =====
