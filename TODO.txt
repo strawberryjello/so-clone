@@ -1,5 +1,9 @@
-5 jan 2015 (last updated)
+6 jan 2015 (last updated)
 ----------
+
+Issues
+======
+- rendering newlines in question/answer text
 
 Models
 ======
