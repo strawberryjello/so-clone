@@ -1,10 +1,15 @@
 6 jan 2015 (last updated)
 ----------
 
+Style guide
+===========
+- hashes (use =>)
+
 Issues
 ======
-- rendering newlines in question/answer text
-- adding foreign keys to existing tables (ZOMG)
+- delete question -> cascade to answers
+- rendering newlines in question/answer text (use an editor (gem))
+- adding foreign keys to existing tables (drop/create is fine for dev db)
 
 Models
 ======
