@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :users do
+    resources :answers
+    resources :questions
+  end
+  
   resources :questions do
     resources :answers
   end
