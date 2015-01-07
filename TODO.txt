@@ -4,6 +4,9 @@
 Style guide
 ===========
 - hashes (use =>)
+- HAML
+  - answer: answer (show), form
+  - question: index, new, show, edit, form
 
 Issues
 ======
