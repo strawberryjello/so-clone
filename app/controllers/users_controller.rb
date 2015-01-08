@@ -11,7 +11,9 @@ class UsersController < ApplicationController
 
     if request.post?
       if @user.save
-        session[:user] = User.authenticate(@user.login, @user.password)
+        user = User.authenticate @user.login, @user.password
+        session[:user_id] = user[:id]
+        session[:username] = user[:login]
         redirect_to questions_path
       else
         render 'new'
@@ -24,7 +26,10 @@ class UsersController < ApplicationController
 
   def do_login
     if request.post?
-      if session[:user] = User.authenticate(params[:login], params[:password])
+      user = User.authenticate params[:login], params[:password]
+      if user
+        session[:user_id] = user[:id]
+        session[:username] = user[:login]
         redirect_to questions_path
       else
         render 'login'
@@ -33,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user] = nil
+    session[:user_id] = nil
     redirect_to questions_path
   end
 

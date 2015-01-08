@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
     @password = pass
     # generates 32-character string
     self.salt = SecureRandom.hex
-    self.hashed_password = self.encrypt @password, self.salt
+    self.hashed_password = User.encrypt @password, self.salt
   end
 
 
