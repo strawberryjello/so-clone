@@ -7,11 +7,11 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
 
     if request.post?
       if @user.save
-        # authenticate
+        session[:user] = User.authenticate(@user.login, @user.password)
         redirect_to questions_path
       else
         render 'new'
