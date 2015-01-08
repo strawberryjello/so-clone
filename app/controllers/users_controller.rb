@@ -19,6 +19,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+  end
+
+  def do_login
+    if request.post?
+      if session[:user] = User.authenticate(params[:login], params[:password])
+        redirect_to questions_path
+      else
+        render 'login'
+      end
+    end
+  end
+
+  def logout
+    session[:user] = nil
+    redirect_to questions_path
+  end
+
 
 
 

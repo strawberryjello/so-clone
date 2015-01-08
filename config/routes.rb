@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/login'
+  post 'users/do_login'
+  get 'users/logout'
+  
   resources :users do
     resources :answers
     resources :questions
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   root 'questions#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

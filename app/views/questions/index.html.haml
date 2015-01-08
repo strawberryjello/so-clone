@@ -2,9 +2,12 @@
 
 = link_to 'Ask Question', new_question_path
 - if session[:user]
-  %p= session[:user][:login]
+  / why doesn't session[:user][:login] work?
+  = session[:user]['login']
+  = link_to 'Logout', users_logout_path
 - else
   = link_to 'Sign Up', new_user_path
+  = link_to 'Login', users_login_path
 
 %hr
 
