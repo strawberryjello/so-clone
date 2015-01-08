@@ -2,9 +2,9 @@
 
 %h3= @question.title
 
-/ make these links user-only
-= link_to 'Edit question', edit_question_path(@question)
-= link_to 'Delete question', question_path(@question), method: :delete, data: {:confirm => 'Are you sure?'}
+- if session[:user]
+  = link_to 'Edit question', edit_question_path(@question)
+  = link_to 'Delete question', question_path(@question), method: :delete, data: {:confirm => 'Are you sure?'}
 
 %p= @question.text
 
@@ -18,5 +18,6 @@
 
 %hr 
 
-%h4 Your Answer
-= render 'answers/form'
+- if session[:user]
+  %h4 Your Answer
+  = render 'answers/form'
