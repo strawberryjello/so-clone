@@ -1,8 +1,9 @@
 %h2 Questions
 
-= link_to 'Ask Question', new_question_path
 - if session[:user]
+  = link_to 'Ask Question', new_question_path
   / why doesn't session[:user][:login] work?
+  Hi
   = session[:user]['login']
   = link_to 'Logout', users_logout_path
 - else
