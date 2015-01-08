@@ -1,7 +1,7 @@
 %h2 Questions
 
+= link_to 'Ask Question', new_question_path
 - if session[:user_id]
-  = link_to 'Ask Question', new_question_path
   Hi
   = session[:username]
   = link_to 'Logout', users_logout_path

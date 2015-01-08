@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   
   def new
     @user = User.new
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
       if user
         session[:user_id] = user[:id]
         session[:username] = user[:login]
-        redirect_to questions_path
+        redirect_to_stored
       else
         render 'login'
       end
