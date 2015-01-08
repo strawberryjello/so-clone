@@ -9,9 +9,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    # authenticate
-    # save
-    # redirect
+    if request.post?
+      if @user.save
+        # authenticate
+        redirect_to questions_path
+      else
+        render 'new'
+      end
+    end
   end
 
 

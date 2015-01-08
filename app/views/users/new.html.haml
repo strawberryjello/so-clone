@@ -1,6 +1,13 @@
 %h1 Sign Up
 
 = form_for @user do |f|
+  - if @user.errors.any?
+    #errors
+      %h2= pluralize @user.errors.count, "error"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
   %p= f.label :login
   %p= f.text_field :login
 
