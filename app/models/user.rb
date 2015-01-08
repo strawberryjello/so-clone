@@ -18,16 +18,16 @@ class User < ActiveRecord::Base
 
 
   def self.authenticate login, pass
-    user = User.find_by login: login
+    user = self.find_by login: login
     return nil if user.nil?
-    return user if User.encrypt(pass, user.salt) == user.hashed_password
+    return user if self.encrypt(pass, user.salt) == user.hashed_password
   end
 
   def password= pass
     @password = pass
     # generates 32-character string
     self.salt = SecureRandom.hex
-    self.hashed_password = User.encrypt @password, self.salt
+    self.hashed_password = self.encrypt @password, self.salt
   end
 
 
