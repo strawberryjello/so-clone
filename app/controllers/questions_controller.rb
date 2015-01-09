@@ -30,6 +30,7 @@ class QuestionsController < ApplicationController
 
 
   def update
+    user = User.find(session[:user_id])
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
@@ -46,6 +47,7 @@ class QuestionsController < ApplicationController
 
 
   def destroy
+    user = User.find(session[:user_id])
     @question = Question.find(params[:id])
     @question.destroy
 
