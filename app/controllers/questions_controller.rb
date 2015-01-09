@@ -13,13 +13,13 @@ class QuestionsController < ApplicationController
 
 
   def edit
-    @question = Question.find(params[:id])
+    @question = Question.find params[:id]
   end
 
   
   def create
-    user = User.find(session[:user_id])
-    @question = user.questions.create(question_params)
+    user = User.find session[:user_id]
+    @question = user.questions.create question_params
 
     if @question.save
       redirect_to @question
@@ -30,10 +30,10 @@ class QuestionsController < ApplicationController
 
 
   def update
-    user = User.find(session[:user_id])
-    @question = Question.find(params[:id])
+    user = User.find session[:user_id]
+    @question = Question.find params[:id]
 
-    if @question.update(question_params)
+    if @question.update question_params
       redirect_to @question
     else
       render 'edit'
@@ -42,13 +42,13 @@ class QuestionsController < ApplicationController
 
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find params[:id]
   end
 
 
   def destroy
-    user = User.find(session[:user_id])
-    @question = Question.find(params[:id])
+    user = User.find session[:user_id]
+    @question = Question.find params[:id]
     @question.destroy
 
     redirect_to questions_path
