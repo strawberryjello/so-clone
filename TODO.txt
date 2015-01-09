@@ -10,6 +10,16 @@ Issues
 - rendering newlines in question/answer text (use an editor (gem))
 - adding foreign keys to existing tables (drop/create is fine for dev db)
 
+Tags
+====
+- delete question -> don't delete tags
+- delete tag -> don't delete questions
+- view all tags
+- view all questions for a tag
+- add tags to a question
+- delete tags from a question
+- any characters not allowed? (allow: +, #, -, ...)
+
 Auth
 ====
 - signup (new user), login
