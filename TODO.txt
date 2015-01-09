@@ -1,5 +1,14 @@
-8 jan 2015 (last updated)
+9 jan 2015 (last updated)
 ----------
+
+Issues
+======
+- mailer can't parse HAML files
+- new answer doesn't require login (problem with request.fullpath in login_required action)
+- no validation errors for new answer (what object do you refer to? -> build creates the empty object in the answers collection, not yet saved)
+- delete question -> cascade to answers
+- rendering newlines in question/answer text (use an editor (gem))
+- adding foreign keys to existing tables (drop/create is fine for dev db)
 
 Auth
 ====
@@ -12,14 +21,6 @@ User actions
 ============
 - view own questions/answers
 - edit own/other users' questions/answers
-
-Issues
-======
-- new answer doesn't require login (problem with request.fullpath in login_required action)
-- no validation errors for new answer (what object do you refer to? -> build creates the empty object in the answers collection, not yet saved)
-- delete question -> cascade to answers
-- rendering newlines in question/answer text (use an editor (gem))
-- adding foreign keys to existing tables (drop/create is fine for dev db)
 
 Style guide
 ===========
