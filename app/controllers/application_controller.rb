@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
     if return_to = session[:return_to]
       session[:return_to] = nil
       redirect_to return_to
+    else
+      redirect_to questions_path
     end
   end
 end
