@@ -5,5 +5,10 @@ class CreateTags < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    create_table :tags_questions, id: false do |t|
+      t.belongs_to :tags, index: true
+      t.belongs_to :questions, index: true
+    end
   end
 end
