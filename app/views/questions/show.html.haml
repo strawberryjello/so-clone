@@ -2,9 +2,9 @@
 
 %h3= @question.title
 
-= link_to 'Edit question', edit_question_path(@question)
+= link_to 'Edit question', edit_user_question_path(:id => @question.id, :user_id => session[:user_id])
 - if session[:user_id]
-  = link_to 'Delete question', question_path(@question), method: :delete, data: {:confirm => 'Are you sure?'}
+  = link_to 'Delete question', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
 
 %p= @question.text
 

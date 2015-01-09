@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :login_required, :only => [:new, :edit, :destroy]
+  before_action :login_required, :except => [:index, :show]
   
   def index
     @questions = Question.all
@@ -18,7 +18,8 @@ class QuestionsController < ApplicationController
 
   
   def create
-    @question = Question.new(question_params)
+    user = User.find(session[:user_id])
+    @question = user.questions.create(question_params)
 
     if @question.save
       redirect_to @question
