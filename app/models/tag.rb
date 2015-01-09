@@ -4,4 +4,11 @@ class Tag < ActiveRecord::Base
   
 
   validates_presence_of :name
+
+  def self.parse_tag_string tag_string
+    tags = nil
+    # split along whitespace
+    tags = tag_string.split
+    # validate or save?
+  end
 end
