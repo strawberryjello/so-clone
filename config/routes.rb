@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'users/login'
   post 'users/do_login'
+  get 'users/change_password'
+  post 'users/do_change_password'
   get 'users/logout'
   
   resources :users do
