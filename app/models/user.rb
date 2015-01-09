@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
     self.hashed_password = User.encrypt @password, self.salt
   end
 
+  def send_new_password
+    # generates 8-character string
+    new_pass = SecureRandom.hex 4
+    self.password = self.password_confirmation = new_pass
+    self.save
+    Notifier.forgot_password(self.email, new_pass).deliver_now
+  end
+
 
   protected
 

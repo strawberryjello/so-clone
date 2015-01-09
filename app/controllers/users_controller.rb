@@ -42,11 +42,26 @@ class UsersController < ApplicationController
     redirect_to questions_path
   end
 
+  def forgot_password
+  end
+  
+  def do_forgot_password
+    if request.post?
+      user = User.find_by(:email => params[:email])
+      if user and user.send_new_password
+        render 'password_sent'
+      else
+        flash[:warning] = 'Password could not be sent'
+        redirect_to users_login_path
+      end
+    end
+  end
+
   def change_password
   end
   
   def do_change_password
-    @user = User.find(session[:user_id])
+    @user = User.find session[:user_id]
     if request.post?
       @user.update_attributes(
         :password => params[:password],
