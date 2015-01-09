@@ -2,21 +2,20 @@ Rails.application.routes.draw do
   get '/login', :to => 'users#login', :as => :login
   post '/do_login', :to => 'users#do_login', :as => :do_login
   get '/logout', :to => 'users#logout', :as => :logout
-  get 'users/change_password'
-  post 'users/do_change_password'
-  get 'users/forgot_password'
-  post 'users/do_forgot_password'
   
   resources :users do
     resources :answers
     resources :questions
 
-    #get :login, :on => :collection
+    member do
+      get :change_password
+      post :do_change_password
+    end
 
-    # collection do
-    #  get :login
-    #  get :logout
-    # end
+    collection do
+      get :forgot_password
+      post :do_forgot_password
+    end
   end
   
   resources :questions do
