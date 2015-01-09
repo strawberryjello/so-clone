@@ -52,7 +52,7 @@ class UsersController < ApplicationController
         render 'password_sent'
       else
         flash[:warning] = 'Password could not be sent'
-        redirect_to users_login_path
+        redirect_to login_path
       end
     end
   end

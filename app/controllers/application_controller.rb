@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
     session[:return_to] = request.fullpath
     flash[:warning] = 'Please log in to continue'
-    redirect_to users_login_path
+    redirect_to login_path
     return false
   end
 
