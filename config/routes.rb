@@ -27,9 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags do
-    resources :questions
-  end
+  resources :tags
 
   root 'questions#index'
 
