@@ -24,9 +24,7 @@ class QuestionsController < ApplicationController
 
     if @question.save
       tags = Tag.parse_tag_string @question.tag_string
-      if !tags.empty?
-        @question.tags << tags
-      end
+      @question.tags << tags
       redirect_to @question
     else
       render 'new'
@@ -40,9 +38,7 @@ class QuestionsController < ApplicationController
 
     if @question.update question_params
       tags = Tag.parse_tag_string @question.tag_string
-      if !tags.empty?
-        @question.tags << tags
-      end
+      @question.tags << tags
       redirect_to @question
     else
       render 'edit'
