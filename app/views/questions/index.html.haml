@@ -1,6 +1,7 @@
 %h2 Questions
 
 = link_to 'Ask Question', new_question_path
+= link_to 'Tags', tags_path
 - if session[:user_id]
   Hi
   = session[:username]

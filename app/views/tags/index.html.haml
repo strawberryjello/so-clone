@@ -1,0 +1,8 @@
+%h1 Tags
+
+= link_to 'Questions', questions_path
+
+%hr
+
+- @tags.each do |t|
+  %p= t.name
