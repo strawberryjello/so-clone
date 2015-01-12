@@ -6,9 +6,16 @@ class Tag < ActiveRecord::Base
   validates_presence_of :name
 
   def self.parse_tag_string tag_string
-    tags = nil
+    tags = []
     # split along whitespace
-    tags = tag_string.split
-    # validate or save?
+    tag_strings = tag_string.split
+    tag_strings.each do |t|
+      new_tag = new(:name => t)
+      # check if tag already exists
+      if new_tag.save
+        tags << new_tag
+      end
+    end
+    return tags
   end
 end
