@@ -9,7 +9,7 @@ class Tag < ActiveRecord::Base
 
   def self.parse_tag_string tag_string
     tags = []
-    tag_strings = tag_string.split ','
+    tag_strings = tag_string.downcase.split ','
     tag_strings.each do |t|
       old_tag = find_by(:name => t)
       if old_tag
