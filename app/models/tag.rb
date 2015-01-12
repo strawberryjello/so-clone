@@ -4,16 +4,22 @@ class Tag < ActiveRecord::Base
   
 
   validates_presence_of :name
+  validates_uniqueness_of :name
+  
 
   def self.parse_tag_string tag_string
     tags = []
     # split along whitespace
     tag_strings = tag_string.split
     tag_strings.each do |t|
-      new_tag = new(:name => t)
-      # check if tag already exists
-      if new_tag.save
-        tags << new_tag
+      old_tag = find_by(:name => t)
+      if old_tag
+        tags << old_tag
+      else
+        new_tag = new(:name => t)
+        if new_tag.save
+          tags << new_tag
+        end
       end
     end
     return tags
