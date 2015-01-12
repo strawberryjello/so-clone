@@ -8,7 +8,8 @@
 
 %p= @question.text
 
-%p Tags
+%h3 Tags
+= render :partial => 'tags/tag', :collection => @question.tags
 
 %hr
 
