@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   
   resources :questions do
     resources :answers
+    resources :tags
+  end
+
+  resources :tags do
+    resources :questions
   end
 
   root 'questions#index'
