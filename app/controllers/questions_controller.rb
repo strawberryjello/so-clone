@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
 
     if @question.save
       tags = Tag.parse_tag_string @question.tag_string
-      @question.tags << tags
+      @question.add_tags tags
       redirect_to @question
     else
       render 'new'
@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
 
     if @question.update question_params
       tags = Tag.parse_tag_string @question.tag_string
-      @question.tags << tags
+      @question.add_tags tags
       redirect_to @question
     else
       render 'edit'

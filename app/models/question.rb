@@ -10,4 +10,13 @@ class Question < ActiveRecord::Base
   
   
   validates_presence_of :title, :text
+
+
+  def add_tags new_tags
+    new_tags.each do |t| 
+      if !tags.exists?(:name => t.name)
+        tags << t
+      end
+    end
+  end
 end
