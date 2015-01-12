@@ -22,6 +22,10 @@ class QuestionsController < ApplicationController
     @question = user.questions.create question_params
 
     if @question.save
+      tags = Tag.parse_tag_string @question.tag_string
+      if !tags.empty?
+        @question.tags << tags
+      end
       redirect_to @question
     else
       render 'new'
@@ -61,6 +65,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :text)
+    params.require(:question).permit(:title, :text, :tag_string)
   end
 end
