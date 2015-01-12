@@ -21,7 +21,8 @@ Tags
 - / delete tags from a question
 - / any characters not allowed? (allow: +, #, -, ...)
 - case insensitive tag search
-- case insensitive tag saving?
+  - using 'like %%', but safely -> how?
+- / case insensitive tag saving (SO seems to do this lol)
 
 Auth
 ====
