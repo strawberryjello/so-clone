@@ -39,6 +39,10 @@ class QuestionsController < ApplicationController
     @question = Question.find params[:id]
 
     if @question.update question_params
+      tags = Tag.parse_tag_string @question.tag_string
+      if !tags.empty?
+        @question.tags << tags
+      end
       redirect_to @question
     else
       render 'edit'
