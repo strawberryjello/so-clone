@@ -59,6 +59,15 @@ class QuestionsController < ApplicationController
   end
 
 
+  def untag
+    @question = Question.find params[:id]
+    tag = Tag.find params[:tag_id]
+    @question.tags.delete tag
+
+    redirect_to question_path
+  end
+
+
 
 
   

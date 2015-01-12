@@ -1,1 +1,2 @@
 %p= tag.name
+= link_to 'Remove tag', untag_question_path(@question, :tag_id => tag.id), method: :post
