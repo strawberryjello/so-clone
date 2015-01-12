@@ -1,8 +1,9 @@
-9 jan 2015 (last updated)
-----------
+12 jan 2015 (last updated)
+-----------
 
 Issues
 ======
+- delete answer confirmation popup appears more than once
 - mailer can't parse HAML files
 - new answer doesn't require login (problem with request.fullpath in login_required action)
 - no validation errors for new answer (what object do you refer to? -> build creates the empty object in the answers collection, not yet saved)
@@ -12,13 +13,14 @@ Issues
 
 Tags
 ====
-- delete question -> don't delete tags
+- / delete question -> don't delete tags
 - delete tag -> don't delete questions
 - view all tags
 - view all questions for a tag
 - add tags to a question
 - delete tags from a question
 - any characters not allowed? (allow: +, #, -, ...)
+- case insensitive tag search
 
 Auth
 ====
