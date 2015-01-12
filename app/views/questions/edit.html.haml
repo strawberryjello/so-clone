@@ -1,3 +1,5 @@
 %h1 Edit Question
 
 = render 'form'
+
+= render :partial => 'tags/tag', :collection => @question.tags
