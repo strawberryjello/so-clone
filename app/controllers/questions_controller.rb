@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find params[:id]
+    session[:return_to] = request.fullpath
   end
 
   
@@ -64,7 +65,7 @@ class QuestionsController < ApplicationController
     tag = Tag.find params[:tag_id]
     @question.tags.delete tag
 
-    redirect_to question_path
+    redirect_to_stored
   end
 
 
