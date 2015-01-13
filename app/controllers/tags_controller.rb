@@ -14,7 +14,7 @@ class TagsController < ApplicationController
   def search
     @original_search = params[:search_string]
     search_string = "%#{params[:search_string].downcase}%"
-    @results = Tag.where('name like ?', search_string).to_a
+    @results = Tag.where('name like ?', search_string)
     if @results.any?
       render 'search'
     else
