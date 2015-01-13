@@ -18,7 +18,7 @@ class TagsController < ApplicationController
     if !@original_search.empty? and @results.any?
       render 'search'
     else
-      flash[:message] = 'No matching tags found'
+      flash[:warning] = 'No matching tags found'
       redirect_to tags_path
     end
   end
