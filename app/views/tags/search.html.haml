@@ -1,1 +1,8 @@
-%h1 Search results for #{}
+%p= link_to 'Tags', tags_path
+
+%h1 Search results for #{@original_search}
+
+- @results.each do |tag|
+  = link_to tag do
+    %p= tag.name
+

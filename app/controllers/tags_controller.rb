@@ -12,18 +12,15 @@ class TagsController < ApplicationController
 
   
   def search
-    # need to enclose the search string in %%, but it has to be sanitized
-    results = Tag.where("name like ?", params[:search_string].downcase)
-    if results.any?
-      # render the results here
+    @original_search = params[:search_string]
+    search_string = "%#{params[:search_string].downcase}%"
+    @results = Tag.where('name like ?', search_string).to_a
+    if @results.any?
+      render 'search'
     else
       flash[:message] = 'No matching tags found'
       redirect_to tags_path
     end
   end
 
-
-  def search_results
-    
-  end
 end
