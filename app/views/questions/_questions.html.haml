@@ -1,7 +1,8 @@
-%table
-  - @questions.each do |question|
-    %tr
-      %td
-        / alternatively: link_to question_path question do
-        = link_to question do
-          = question.title
+.container
+  %table.table.table-hover
+    - @questions.each do |question|
+      %tr
+        %td
+          / alternatively: link_to question_path question do
+          = link_to question do
+            = question.title
