@@ -12,6 +12,15 @@ Issues
 - rendering newlines in question/answer text (use an editor (gem))
 - adding foreign keys to existing tables (drop/create is fine for dev db)
 
+Bootstrap
+=========
+- gem: bootstrap-sass (also added: sprockets-rails, autoprefixer-rails)
+- views
+ - user: view user, user homepage, new (signup)
+ - question: new, edit, index (tag list, user)
+ - tags: tag list (edit question)
+ - other forms: change password, forgot password, login, etc
+
 Tags
 ====
 - / delete question -> don't delete tags
