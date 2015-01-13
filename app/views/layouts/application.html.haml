@@ -7,9 +7,12 @@
     = csrf_meta_tags
 
   %body
-    - if flash[:message]
-      %p= flash[:message]
-    - if flash[:warning]
-      %p= flash[:warning]
+    .container
+      = render 'layouts/navbar'
+      - if flash[:message]
+        %p= flash[:message]
+      - if flash[:warning]
+        %p= flash[:warning]
 
-    = yield
+      .container
+        = yield
