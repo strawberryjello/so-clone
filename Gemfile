@@ -9,6 +9,12 @@ gem 'rails', '4.2.0'
 gem 'pg'
 # HAML for views
 gem 'haml'
+# Sprockets integration
+gem 'sprockets-rails', '>= 2.1.4'
+# Bootstrap for Rails
+gem 'bootstrap-sass'
+# Autoprefixer is recommended for Bootstrap
+gem 'autoprefixer-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
