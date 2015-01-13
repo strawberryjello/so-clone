@@ -12,10 +12,10 @@ class TagsController < ApplicationController
 
   
   def search
-    @original_search = params[:search_string]
-    search_string = "%#{params[:search_string].downcase}%"
+    @original_search = params[:search_string].strip
+    search_string = "%#{@original_search.downcase}%"
     @results = Tag.where('name like ?', search_string)
-    if @results.any?
+    if !@original_search.empty? and @results.any?
       render 'search'
     else
       flash[:message] = 'No matching tags found'
