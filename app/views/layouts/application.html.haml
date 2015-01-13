@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title SoClone
+    %title soclone
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -9,10 +9,16 @@
   %body
     .container
       = render 'layouts/navbar'
+      
       - if flash[:message]
-        %p= flash[:message]
+        .container.bg-info
+          %p= flash[:message]
       - if flash[:warning]
-        %p= flash[:warning]
+        .container.bg-warning
+          %p= flash[:warning]
+      - if flash[:error]
+        .container.bg-danger
+          %p= flash[:error]
 
       .container
         = yield
