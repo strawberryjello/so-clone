@@ -12,6 +12,4 @@
 
 %hr
 
-.container
-  - @tags.each do |t|
-    = link_to t.name, tag_path(t), :class => 'btn btn-default'
+= render 'tag_list'
