@@ -1,3 +1,4 @@
-.container
-  - @tags.each do |t|
-    = link_to t.name, tag_path(t), :class => 'btn btn-primary'
+.container-fluid
+  %ul.list-inline
+    - @tags.each do |t|
+      %li{:style => 'margin-bottom: 10px;'}= link_to t.name, tag_path(t), :class => 'btn btn-primary'
