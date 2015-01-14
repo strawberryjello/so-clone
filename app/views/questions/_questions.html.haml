@@ -1,8 +1,16 @@
-.container-fluid
+.container-fluid{:style => 'margin-top: 20px;'}
   %table.table.table-hover
     - @questions.each do |question|
       %tr
         %td
-          / alternatively: link_to question_path question do
-          = link_to question do
-            = question.title
+          .container-fluid
+            .container-fluid{:style => 'margin-bottom: 10px;'}
+              = link_to question do
+                %h4= question.title
+
+            - if question.tags.any?
+              .container-fluid.pull-left{:style => 'margin-bottom: 10px;'}
+                = render :partial => 'tags/tag', :collection => question.tags
+
+            .container-fluid.pull-left
+              %p asked by #{question.user.login}

@@ -1,7 +1,10 @@
 %h3= @question.title
 
-.container
-  %p= @question.text
+%hr
+
+.container-fluid
+  .container-fluid{:style => 'margin-bottom: 10px;'}
+    = @question.text
   .container-fluid{:style => 'margin-bottom: 10px;'}
     = render :partial => 'tags/tag', :collection => @question.tags
   .container-fluid.pull-left
@@ -16,7 +19,7 @@
 
 %h3 Answers
 
-.container-fluid
+.container-fluid{:style => 'margin-top: 20px;'}
   = render @question.answers
 
 %h4 Your Answer
