@@ -11,13 +11,13 @@
       = render 'layouts/navbar'
       
       - if flash[:message]
-        .container.bg-info
+        .container-fluid.bg-info{:style => 'padding-top: 10px;'}
           %p= flash[:message]
       - if flash[:warning]
-        .container.bg-warning
+        .container-fluid.bg-warning{:style => 'padding-top: 10px;'}
           %p= flash[:warning]
       - if flash[:error]
-        .container.bg-danger
+        .container-fluid.bg-danger{:style => 'padding-top: 10px;'}
           %p= flash[:error]
 
       .container
