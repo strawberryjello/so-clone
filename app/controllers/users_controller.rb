@@ -31,7 +31,7 @@ class UsersController < ApplicationController
         session[:username] = user[:login]
         redirect_to_stored
       else
-        flash[:error] = 'Login failed'
+        flash.now[:error] = 'Login failed'
         render 'login'
       end
     end
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
         flash[:message] = 'Password changed'
         redirect_to questions_path
       else
-        flash[:error] = 'Password change failed'
+        flash.now[:error] = 'Password change failed'
         render 'change_password'
       end
     end
