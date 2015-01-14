@@ -1,2 +1,3 @@
-%p= tag.name
-= link_to 'Remove tag', untag_question_path(@question, :tag_id => tag.id), method: :post
+= link_to tag.name, tag_path(tag), :class => 'btn btn-primary'
+- if session[:user_id]
+  = link_to 'Remove tag', untag_question_path(@question, :tag_id => tag.id), method: :post

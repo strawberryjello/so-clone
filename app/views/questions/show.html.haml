@@ -1,23 +1,25 @@
-= link_to 'Questions', questions_path
+.container
+  %h3= @question.title
 
-%h3= @question.title
+  .container
+    %p= @question.text
+    %br
+    = render :partial => 'tags/tag', :collection => @question.tags
+    %br
+    %br
+    - if session[:user_id]
+      = link_to 'Edit question', edit_user_question_path(:id => @question.id, :user_id => session[:user_id]), :class => 'btn btn-default'
+      = link_to 'Delete question', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}, :class => 'btn btn-default'
 
-- if session[:user_id]
-  = link_to 'Edit question', edit_user_question_path(:id => @question.id, :user_id => session[:user_id])
-  = link_to 'Delete question', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
+  %hr
 
-%p= @question.text
+  %h3 Answers
 
-%h3 Tags
-= render :partial => 'tags/tag', :collection => @question.tags
+  .container
+    = render @question.answers
 
-%hr
+  %hr 
 
-%h3 Answers
+  %h4 Your Answer
 
-= render @question.answers
-
-%hr 
-
-%h4 Your Answer
-= render 'answers/form'
+  = render 'answers/form'
