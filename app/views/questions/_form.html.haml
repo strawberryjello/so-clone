@@ -1,19 +1,20 @@
-= form_for @question do |f|
-  - if @question.errors.any?
-    #errors
-      %h2= pluralize @question.errors.count, "error"
-      %ul
-        - @question.errors.full_messages.each do |msg|
-          %li= msg
+.container
+  = form_for @question do |f|
+    - if @question.errors.any?
+      #errors
+        %h2= pluralize @question.errors.count, "error"
+        %ul
+          - @question.errors.full_messages.each do |msg|
+            %li= msg
 
-  %p= f.label :title
-  %p= f.text_field :title
+    %p= f.label :title
+    %p= f.text_field :title, :size => 75
 
-  %p= f.label :text
-  %p= f.text_area :text
+    %p= f.label :text
+    %p= f.text_area :text, :size => '75x10'
 
-  %p= label_tag 'Tags'
-  %p= f.text_field :tag_string
+    %p= label_tag 'Tags'
+    %p= f.text_field :tag_string, :size => 75
 
-  %p= f.submit
+    %p= f.submit
 

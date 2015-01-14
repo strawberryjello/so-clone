@@ -10,6 +10,7 @@
     - if session[:user_id]
       = link_to 'Edit question', edit_user_question_path(:id => @question.id, :user_id => session[:user_id]), :class => 'btn btn-default'
       = link_to 'Delete question', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}, :class => 'btn btn-default'
+      %p asked by #{session[:username]}
 
   %hr
 
@@ -18,7 +19,7 @@
   .container
     = render @question.answers
 
-  %hr 
+  %hr
 
   %h4 Your Answer
 
