@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find params[:id]
+    @question.tag_string = Tag.create_tag_string @question.tags
     session[:return_to] = request.fullpath
   end
 
@@ -38,6 +39,7 @@ class QuestionsController < ApplicationController
 
     if @question.update question_params
       tags = Tag.parse_tag_string @question.tag_string
+      @question.tags.clear
       @question.add_tags tags
       redirect_to @question
     else
