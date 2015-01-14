@@ -1,4 +1,4 @@
-13 jan 2015 (last updated)
+14 jan 2015 (last updated)
 -----------
 
 Issues
@@ -20,6 +20,8 @@ Bootstrap
   - question: new, edit (comma-separated tag string in text field), index (tag list, user)
   - tags: tag list (edit question -> hide 'remove' when not logged in)
   - other forms: change password, forgot password, login, etc
+- styles
+  - pull up inline styles
 
 Prod
 ====
