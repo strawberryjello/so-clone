@@ -16,10 +16,14 @@ Bootstrap
 =========
 - gem: bootstrap-sass (also added: sprockets-rails, autoprefixer-rails)
 - views
- - user: view user, user homepage, new (signup)
- - question: new, edit, index (tag list, user)
- - tags: tag list (edit question)
- - other forms: change password, forgot password, login, etc
+  - user: view user, user homepage, new (signup)
+  - question: new, edit (comma-separated tag string in text field), index (tag list, user)
+  - tags: tag list (edit question -> hide 'remove' when not logged in)
+  - other forms: change password, forgot password, login, etc
+
+Prod
+====
+- set up test and prod dbs, revert dev to sqlite
 
 Tags
 ====
