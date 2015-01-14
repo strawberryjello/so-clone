@@ -24,4 +24,15 @@ class Tag < ActiveRecord::Base
     end
     return tags
   end
+
+
+  def self.create_tag_string tags
+    return tags.join ','
+  end
+
+
+  def to_s
+    return name
+  end
+  
 end
