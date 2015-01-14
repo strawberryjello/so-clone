@@ -7,7 +7,7 @@
     = csrf_meta_tags
 
   %body
-    .container-fluid
+    .container-fluid{:style => 'margin-top: 10px;'}
       = render 'layouts/navbar'
       
       - if flash[:message]
