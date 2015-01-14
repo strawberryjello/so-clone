@@ -1,12 +1,14 @@
-%h1 Login
+%h3{:style => 'margin-bottom: 20px;'} Log in
 
 = form_tag :do_login do
-  %p= label_tag :login
-  %p= text_field_tag :login
+  .form-group
+    %p= label_tag :login, 'Username'
+    %p= text_field_tag :login
 
-  %p= label_tag :password
-  %p= password_field_tag :password
+  .form-group
+    %p= label_tag :password
+    %p= password_field_tag :password
 
-  %p= submit_tag 'Login'
+  %p= submit_tag 'Log in'
 
 = link_to 'Forgot password?', forgot_password_users_path

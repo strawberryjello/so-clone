@@ -1,4 +1,4 @@
-%h1 Sign Up
+%h3{:style => 'margin-bottom: 20px;'} Sign Up
 
 = form_for @user do |f|
   - if @user.errors.any?
@@ -8,16 +8,20 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
 
-  %p= f.label :login
-  %p= f.text_field :login
+  .form-group
+    %p= f.label :login, 'Username'
+    %p= f.text_field :login
 
-  %p= f.label :password
-  %p= f.password_field :password
+  .form-group
+    %p= f.label :password
+    %p= f.password_field :password
 
-  %p= f.label :password_confirmation
-  %p= f.password_field :password_confirmation
+  .form-group
+    %p= f.label :password_confirmation, 'Confirm password'
+    %p= f.password_field :password_confirmation
 
-  %p= f.label :email
-  %p= f.email_field :email
+  .form-group
+    %p= f.label :email
+    %p= f.email_field :email
 
-  %p= f.submit
+  %p= f.submit 'Sign up'

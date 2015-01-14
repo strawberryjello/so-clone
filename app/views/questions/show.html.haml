@@ -9,9 +9,9 @@
     = render :partial => 'tags/tag', :collection => @question.tags
   .container-fluid.pull-left
     - if session[:user_id]
-      = link_to 'edit question', edit_user_question_path(:id => @question.id, :user_id => session[:user_id])
+      = link_to 'edit', edit_user_question_path(:id => @question.id, :user_id => session[:user_id])
       |
-      = link_to 'delete question', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
+      = link_to 'delete', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
   .container-fluid.pull-left
     %p asked by #{@question.user.login}
 

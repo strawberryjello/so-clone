@@ -3,7 +3,7 @@
 
 .container-fluid
   - if session[:user_id]
-    = link_to 'delete answer', [answer.question, answer], method: :delete, data: {:confirm => 'Are you sure?'}
+    = link_to 'delete', [answer.question, answer], method: :delete, data: {:confirm => 'Are you sure?'}
 
 -# .container-fluid.pull-left
 -#   %p answered by #{answer.user.login}
