@@ -7,17 +7,17 @@
     = csrf_meta_tags
 
   %body
-    .container-fluid{:style => 'margin-top: 10px;'}
+    .container-fluid.top-margin
       = render 'layouts/navbar'
       
       - if flash[:message]
-        .container-fluid.bg-info{:style => 'padding-top: 10px;'}
+        .container-fluid.bg-info
           %p= flash[:message]
       - if flash[:warning]
-        .container-fluid.bg-warning{:style => 'padding-top: 10px;'}
+        .container-fluid.bg-warning
           %p= flash[:warning]
       - if flash[:error]
-        .container-fluid.bg-danger{:style => 'padding-top: 10px;'}
+        .container-fluid.bg-danger
           %p= flash[:error]
 
       .container

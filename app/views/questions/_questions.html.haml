@@ -1,15 +1,15 @@
-.container-fluid{:style => 'margin-top: 20px;'}
+.container-fluid.top-margin
   %table.table.table-hover
     - @questions.each do |question|
       %tr
         %td
           .container-fluid
-            .container-fluid{:style => 'margin-bottom: 10px;'}
+            .container-fluid.bottom-margin
               = link_to question do
                 %h4= question.title
 
             - if question.tags.any?
-              .container-fluid.pull-left{:style => 'margin-bottom: 10px;'}
+              .container-fluid.pull-left.bottom-margin
                 = render :partial => 'tags/tag', :collection => question.tags
 
             .container-fluid.pull-left

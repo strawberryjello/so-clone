@@ -5,3 +5,33 @@ h3 {
   margin-bottom: 20px;
 }
 
+nav {
+  padding: {
+    top: 10px;
+    bottom: 10px;
+  }
+}
+
+.navbar-right {
+  margin: {
+    right: 5px;
+  }
+}
+
+.bg-info,
+.bg-warning,
+.bg-danger {
+  padding-top: 10px;
+}
+
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
+.top-margin {
+  margin-top: 20px;
+}
+
+.nav-text {
+  padding: 10px 15px;
+}

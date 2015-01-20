@@ -3,9 +3,9 @@
 %hr
 
 .container-fluid
-  .container-fluid{:style => 'margin-bottom: 10px;'}
+  .container-fluid.bottom-margin
     = @question.text
-  .container-fluid{:style => 'margin-bottom: 10px;'}
+  .container-fluid.bottom-margin
     = render :partial => 'tags/tag', :collection => @question.tags
   .container-fluid.pull-left
     - if session[:user_id]
@@ -19,7 +19,7 @@
 
 %h3 Answers
 
-.container-fluid{:style => 'margin-top: 20px;'}
+.container-fluid.top-margin
   = render @question.answers
 
 %h4 Your Answer

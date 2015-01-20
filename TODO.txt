@@ -1,8 +1,9 @@
-14 jan 2015 (last updated)
+20 jan 2015 (last updated)
 -----------
 
 Issues
 ======
+- CSS classes with bad names (.bottom-margin, .top-margin)
 - delete answer confirmation popup appears more than once
   - broken HAML formatting in application.html.haml put the JS includes in the body, which forced the page to reload the popup JS several times
 - mailer can't parse HAML files

@@ -1,13 +1,13 @@
-%nav.navbar.navbar-default{:style => 'padding-top: 10px; padding-bottom: 10px;'}
+%nav.navbar.navbar-default
   .container-fluid
     %ul.nav.nav-bar.nav-pills.navbar-left
       %li= link_to 'Ask Question', new_question_path
       %li= link_to 'Questions', questions_path
       %li= link_to 'Tags', tags_path
 
-    %ul.nav.nav-bar.nav-pills.navbar-right{:style => 'margin-right: 5px;'}
+    %ul.nav.nav-bar.nav-pills.navbar-right
       - if session[:user_id]
-        %li{:style => 'padding: 10px 15px;'} Logged in as #{session[:username]}
+        %li.nav-text Logged in as #{session[:username]}
         %li= link_to 'Change password', change_password_user_path(session[:user_id])
         %li= link_to 'Logout', logout_path
       - else
