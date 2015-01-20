@@ -3,6 +3,8 @@
 
 Issues
 ======
+- question and answer votes not being saved? -> verify
+- user ID not being saved in answers table
 - CSS classes with bad names (.bottom-margin, .top-margin)
 - delete answer confirmation popup appears more than once
   - broken HAML formatting in application.html.haml put the JS includes in the body, which forced the page to reload the popup JS several times

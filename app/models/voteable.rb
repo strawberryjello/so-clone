@@ -3,8 +3,6 @@ module Voteable
   attr_accessor :votes
 
 
-
-
   def init
     @votes = 0
   end
