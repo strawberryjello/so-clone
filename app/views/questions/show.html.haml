@@ -3,17 +3,27 @@
 %hr
 
 .container-fluid
-  .container-fluid.bottom-margin
-    = @question.text
-  .container-fluid.bottom-margin
-    = render :partial => 'tags/tag', :collection => @question.tags
-  .container-fluid.pull-left
-    - if session[:user_id]
-      = link_to 'edit', edit_user_question_path(:id => @question.id, :user_id => session[:user_id])
-      |
-      = link_to 'delete', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
-  .container-fluid.pull-left
-    %p asked by #{@question.user.login}
+  %table.table.table-hover
+    %tr
+      %td.vote-box
+        .arrow-up
+        -# %p= @question.votes
+        .votes.text-center
+          0
+        .arrow-down
+
+      %td
+        .container-fluid.bottom-margin
+          = @question.text
+        .container-fluid.bottom-margin
+          = render :partial => 'tags/tag', :collection => @question.tags
+        .container-fluid.pull-left
+          - if session[:user_id]
+            = link_to 'edit', edit_user_question_path(:id => @question.id, :user_id => session[:user_id])
+            |
+            = link_to 'delete', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
+        .container-fluid.pull-left
+          %p asked by #{@question.user.login}
 
 %hr
 

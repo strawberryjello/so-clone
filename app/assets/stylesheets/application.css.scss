@@ -35,3 +35,34 @@ nav {
 .nav-text {
   padding: 10px 15px;
 }
+
+.vote-box {
+  width: 40px;
+}
+
+.votes {
+  color: #999;
+  font: {
+    size: 20px;
+  }
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border: {
+    left: 15px solid transparent;
+    right: 15px solid transparent;
+    bottom: 15px solid #999;
+  }
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border: {
+    left: 15px solid transparent;
+    right: 15px solid transparent;
+    top: 15px solid #999;
+  }
+}

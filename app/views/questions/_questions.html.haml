@@ -2,15 +2,19 @@
   %table.table.table-hover
     - @questions.each do |question|
       %tr
+        %td.vote-box
+          .arrow-up
+          .votes.text-center
+            0
+          .arrow-down
         %td
-          .container-fluid
-            .container-fluid.bottom-margin
-              = link_to question do
-                %h4= question.title
+          .container-fluid.bottom-margin
+            = link_to question do
+              %h4= question.title
 
-            - if question.tags.any?
-              .container-fluid.pull-left.bottom-margin
-                = render :partial => 'tags/tag', :collection => question.tags
+          - if question.tags.any?
+            .container-fluid.pull-left.bottom-margin
+              = render :partial => 'tags/tag', :collection => question.tags
 
-            .container-fluid.pull-left
-              %p asked by #{question.user.login}
+          .container-fluid.pull-left
+            %p asked by #{question.user.login}
