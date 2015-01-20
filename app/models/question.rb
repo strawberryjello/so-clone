@@ -1,5 +1,8 @@
 class Question < ActiveRecord::Base
 
+  include Voteable
+  
+
   attr_accessor :tag_string
   
 
@@ -12,6 +15,9 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :text
 
 
+  after_initialize :init
+
+  
   def add_tags new_tags
     new_tags.each do |t| 
       if !tags.exists?(:name => t.name)
