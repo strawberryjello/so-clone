@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150109100957) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
+    t.integer  "votes"
     t.integer  "question_id"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150109100957) do
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
+    t.integer  "votes"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
