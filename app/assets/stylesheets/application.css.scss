@@ -42,8 +42,19 @@ nav {
 
 .votes {
   color: #999;
+}
+
+.votes-tally {
+  @extend .votes;
   font: {
     size: 20px;
+  }
+}
+
+.votes-text {
+  @extend .votes;
+  font: {
+    size: 12px;
   }
 }
 

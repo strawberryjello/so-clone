@@ -6,10 +6,10 @@
   %table.table.table-hover
     %tr
       %td.vote-box
-        .arrow-up
-        -# = link_to 'upvote', upvote_question_path(@question)
-        .votes.text-center
-          0
+        -#.arrow-up
+        = link_to 'upvote', question_upvotes_path(@question), method: :post
+        .votes-tally.text-center
+          = @question.votes
         .arrow-down
 
       %td

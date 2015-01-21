@@ -3,10 +3,9 @@
     - @questions.each do |question|
       %tr
         %td.vote-box
-          .arrow-up
-          .votes.text-center
-            0
-          .arrow-down
+          .container-fluid.text-center
+            %p.votes-tally= question.votes
+            %p.votes-text votes
         %td
           .container-fluid.bottom-margin
             = link_to question do
