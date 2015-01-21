@@ -3,10 +3,10 @@
 = form_for @user do |f|
   - if @user.errors.any?
     #errors
-      %h2= pluralize @user.errors.count, "error"
+      %h4= pluralize @user.errors.count, "error"
       %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+        = list_of @user.errors.full_messages do |msg|
+          = msg
 
   .form-group
     %p= f.label :login, 'Username'

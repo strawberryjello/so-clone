@@ -1,10 +1,10 @@
 = form_for @question do |f|
   - if @question.errors.any?
     #errors
-      %h2= pluralize @question.errors.count, "error"
+      %h4= pluralize @question.errors.count, "error"
       %ul
-        - @question.errors.full_messages.each do |msg|
-          %li= msg
+        = list_of @question.errors.full_messages do |msg|
+          = msg
 
   .form-group
     %p= f.label :title
