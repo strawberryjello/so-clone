@@ -7,8 +7,9 @@
     %tr
       %td.vote-box
         .arrow-up
+        -# = link_to 'upvote', upvote_question_path(@question)
         .votes.text-center
-          = @question.votes
+          0
         .arrow-down
 
       %td

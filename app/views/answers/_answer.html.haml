@@ -3,18 +3,18 @@
     %td.vote-box
       .arrow-up
       .votes.text-center
-        = answer.votes
+        0
       .arrow-down
 
     %td
       .container-fluid.bottom-margin
         = answer.body
 
-      .container-fluid
+      .container-fluid.pull-left
         - if session[:user_id]
           = link_to 'delete', [answer.question, answer], method: :delete, data: {:confirm => 'Are you sure?'}
 
-      -# .container-fluid.pull-left
-      -#   %p answered by #{answer.user.login}
+      .container-fluid.pull-left
+        %p answered by #{answer.user.login}
 
 %hr
