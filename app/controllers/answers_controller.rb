@@ -3,6 +3,9 @@ class AnswersController < ApplicationController
   def create
     @question = Question.find params[:question_id]
     @answer = @question.answers.create answer_params
+    @user = User.find session[:user_id]
+    @answer.user = @user
+    @answer.save
     redirect_to question_path @question
   end
 
