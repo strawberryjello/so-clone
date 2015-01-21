@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :answers
     resources :questions
+    resources :upvotes
+    resources :downvotes
 
     member do
       get :change_password
@@ -21,6 +23,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
     resources :tags
+    resources :upvotes
+    resources :downvotes
 
     member do
       post :untag

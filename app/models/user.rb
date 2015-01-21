@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
 
   
   has_many :questions
-  has_many :question_upvotes, through: :questions
-  has_many :question_downvotes, through: :questions
+  has_many :question_upvotes, through: :questions, source: :upvotes
+  has_many :question_downvotes, through: :questions, source: :downvotes
   
   has_many :answers
   has_many :answers_upvotes, through: :answers
@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
     return user if self.encrypt(pass, user.salt) == user.hashed_password
   end
 
+  
   def password= pass
     @password = pass
     # generates 32-character string

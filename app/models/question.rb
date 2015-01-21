@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+
+  include Voteable
   
 
   attr_accessor :tag_string
@@ -24,4 +26,5 @@ class Question < ActiveRecord::Base
       end
     end
   end
+
 end

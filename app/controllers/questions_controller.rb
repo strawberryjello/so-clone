@@ -73,7 +73,7 @@ class QuestionsController < ApplicationController
 
 
 
-  
+
   private
 
   def question_params
