@@ -10,6 +10,6 @@ class Answer < ActiveRecord::Base
   validates_presence_of :body
  
  
-  after_initialize :init
-
+  before_create :init_votes
+  
 end

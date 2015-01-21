@@ -15,8 +15,8 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :text
 
 
-  after_initialize :init
-
+  before_create :init_votes
+  
   
   def add_tags new_tags
     new_tags.each do |t| 

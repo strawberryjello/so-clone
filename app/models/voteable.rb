@@ -1,17 +1,16 @@
 module Voteable
+
+  def init_votes
+    self.votes = 0
+  end
+
   
-  attr_accessor :votes
-
-
-  def init
-    @votes = 0
-  end
-
   def upvote
-    @votes += 1
+    self.votes += 1
   end
 
+  
   def downvote
-    @votes -= 1
+    self.votes -= 1
   end
 end
