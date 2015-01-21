@@ -1,10 +1,12 @@
-20 jan 2015 (last updated)
+21 jan 2015 (last updated)
 -----------
 
 Issues
 ======
 - question and answer votes not being saved? -> verify
+  - problem with variable scope, no longer relevant due to updated voting architecture
 - user ID not being saved in answers table
+  - logged in user not being associated to newly created answer in controller
 - CSS classes with bad names (.bottom-margin, .top-margin)
 - delete answer confirmation popup appears more than once
   - broken HAML formatting in application.html.haml put the JS includes in the body, which forced the page to reload the popup JS several times
@@ -14,6 +16,11 @@ Issues
 - delete question -> cascade to answers
 - rendering newlines in question/answer text (use an editor (gem))
 - adding foreign keys to existing tables (drop/create is fine for dev db)
+
+Votes
+=====
+- question upvotes/downvotes
+- answer upvotes/downvotes
 
 Bootstrap
 =========
