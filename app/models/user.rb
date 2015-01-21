@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
 
   
   has_many :questions
+  has_many :question_upvotes, through: :questions
+  has_many :question_downvotes, through: :questions
+  
   has_many :answers
+  has_many :answers_upvotes, through: :answers
+  has_many :answers_downvotes, through: :answers
 
 
   validates_presence_of :login, :password, :password_confirmation, :email
