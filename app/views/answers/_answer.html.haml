@@ -17,6 +17,7 @@
           = link_to 'delete', [answer.question, answer], method: :delete, data: {:confirm => 'Are you sure?'}
 
       .container-fluid.pull-left
-        %p answered by #{answer.user.login}
+        answered by
+        = link_to answer.user.login, profile_user_path(answer.user)
 
 %hr

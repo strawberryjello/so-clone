@@ -1,4 +1,11 @@
 %h3= @user.login
 
+%hr
+
 %h4 Questions
 = render 'questions/questions'
+
+%hr
+
+%h4 Answered Questions
+= render partial: 'answers/user_answer', collection: @user.answers, as: :answer
