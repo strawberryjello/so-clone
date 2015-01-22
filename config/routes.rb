@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     
     resources :tags
     resources :upvotes, :to => :upvote_question, only: [:create]
-    resources :downvotes
+    resources :downvotes, :to => :downvote_question, only: [:create]
 
     member do
       post :untag
