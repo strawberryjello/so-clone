@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   
   resources :questions do
     resources :answers do
-      resources :upvotes
-      resources :downvotes
+      resources :upvotes, :to => :upvote_answer, only: [:create]
+      resources :downvotes, :to => :downvote_answer, only: [:create]
     end
     
     resources :tags
