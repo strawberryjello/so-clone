@@ -1,0 +1,2 @@
+class DownvotesController < ApplicationController
+end
