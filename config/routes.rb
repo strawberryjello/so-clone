@@ -21,9 +21,13 @@ Rails.application.routes.draw do
   end
   
   resources :questions do
-    resources :answers
+    resources :answers do
+      resources :upvotes
+      resources :downvotes
+    end
+    
     resources :tags
-    resources :upvotes
+    resources :upvotes, :to => :upvote_question, only: [:create]
     resources :downvotes
 
     member do

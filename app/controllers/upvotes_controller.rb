@@ -3,7 +3,7 @@ class UpvotesController < ApplicationController
   before_action :login_required
 
 
-  def create
+  def upvote_question
     @question = Question.find params[:question_id]
     @user = User.find session[:user_id]
 
