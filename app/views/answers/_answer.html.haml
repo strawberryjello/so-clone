@@ -1,10 +1,12 @@
 %table.table.table-hover
   %tr
     %td.vote-box
-      .arrow-up
+      -#.arrow-up
+      = link_to 'upvote', question_answer_upvotes_path(@question, answer), method: :post
       .votes.text-center
-        0
-      .arrow-down
+        = answer.votes
+      -#.arrow-down
+      = link_to 'downvote', question_answer_downvotes_path(@question, answer), method: :post
 
     %td
       .container-fluid.bottom-margin
