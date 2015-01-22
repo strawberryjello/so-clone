@@ -10,7 +10,8 @@
         = link_to 'upvote', question_upvotes_path(@question), method: :post
         .votes-tally.text-center
           = @question.votes
-        .arrow-down
+        -#.arrow-down
+        = link_to 'downvote', question_downvotes_path(@question), method: :post
 
       %td
         .container-fluid.bottom-margin
