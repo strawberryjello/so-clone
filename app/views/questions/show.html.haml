@@ -24,7 +24,8 @@
             |
             = link_to 'delete', user_question_path(:id => @question, :user_id => session[:user_id]), method: :delete, data: {:confirm => 'Are you sure?'}
         .container-fluid.pull-left
-          %p asked by #{@question.user.login}
+          asked by
+          = link_to @question.user.login, profile_user_path(@question.user)
 
 %hr
 

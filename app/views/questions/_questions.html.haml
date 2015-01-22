@@ -16,4 +16,5 @@
               = render :partial => 'tags/tag', :collection => question.tags
 
           .container-fluid.pull-left
-            %p asked by #{question.user.login}
+            asked by
+            = link_to question.user.login, profile_user_path(question.user)

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
   def create
     @user = User.new user_params
 
@@ -20,6 +19,13 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def profile
+    @user = User.find params[:id]
+    @questions = @user.questions
+  end
+
+  
   def login
   end
 
@@ -42,6 +48,7 @@ class UsersController < ApplicationController
     redirect_to questions_path
   end
 
+  
   def forgot_password
   end
   
@@ -57,6 +64,7 @@ class UsersController < ApplicationController
     end
   end
 
+  
   def change_password
   end
   

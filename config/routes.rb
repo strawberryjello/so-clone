@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     member do
       get :change_password
       post :do_change_password
+      get :account
+      get :profile
     end
 
     collection do
