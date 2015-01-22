@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150121061109) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "answers", force: :cascade do |t|
     t.text     "body"
     t.integer  "question_id"
@@ -24,8 +21,8 @@ ActiveRecord::Schema.define(version: 20150121061109) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "downvotes", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,8 +32,8 @@ ActiveRecord::Schema.define(version: 20150121061109) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
-  add_index "downvotes", ["voteable_type", "voteable_id"], name: "index_downvotes_on_voteable_type_and_voteable_id", using: :btree
+  add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id"
+  add_index "downvotes", ["voteable_type", "voteable_id"], name: "index_downvotes_on_voteable_type_and_voteable_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "title"
@@ -46,15 +43,15 @@ ActiveRecord::Schema.define(version: 20150121061109) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "questions_tags", id: false, force: :cascade do |t|
     t.integer "tag_id"
     t.integer "question_id"
   end
 
-  add_index "questions_tags", ["question_id"], name: "index_questions_tags_on_question_id", using: :btree
-  add_index "questions_tags", ["tag_id"], name: "index_questions_tags_on_tag_id", using: :btree
+  add_index "questions_tags", ["question_id"], name: "index_questions_tags_on_question_id"
+  add_index "questions_tags", ["tag_id"], name: "index_questions_tags_on_tag_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -70,8 +67,8 @@ ActiveRecord::Schema.define(version: 20150121061109) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
-  add_index "upvotes", ["voteable_type", "voteable_id"], name: "index_upvotes_on_voteable_type_and_voteable_id", using: :btree
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
+  add_index "upvotes", ["voteable_type", "voteable_id"], name: "index_upvotes_on_voteable_type_and_voteable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "login"
