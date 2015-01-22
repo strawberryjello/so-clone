@@ -1,3 +1,6 @@
+# dotenv for environment variables
+gem 'dotenv-rails'
+
 source 'https://rubygems.org'
 
 
