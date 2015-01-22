@@ -62,22 +62,26 @@ nav {
   }
 }
 
-.arrow-up {
+.arrow {
   width: 0;
   height: 0;
+  display: block;
   border: {
     left: 15px solid transparent;
     right: 15px solid transparent;
+  }
+}
+
+.arrow-up {
+  @extend .arrow;
+  border: {
     bottom: 15px solid #999;
   }
 }
 
 .arrow-down {
-  width: 0;
-  height: 0;
+  @extend .arrow;
   border: {
-    left: 15px solid transparent;
-    right: 15px solid transparent;
     top: 15px solid #999;
   }
 }
