@@ -10,7 +10,7 @@
 
     %td
       .container-fluid.bottom-margin
-        = answer.body
+        = sanitize answer.body
 
       .container-fluid.pull-left
         - if session[:user_id]
