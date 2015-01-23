@@ -11,5 +11,11 @@ class Answer < ActiveRecord::Base
 
   validates_presence_of :body
  
- 
+
+  before_validation :sanitize
+
+
+  def sanitize
+    self.body = ActionController::Base.helpers.sanitize(self.body)
+  end
 end
