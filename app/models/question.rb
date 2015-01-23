@@ -19,10 +19,20 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :text
 
 
+  before_validation :sanitize
+
+
+  def sanitize
+    self.title = ActionController::Base.helpers.sanitize(self.title)
+    self.text = ActionController::Base.helpers.sanitize(self.text)
+  end
+
+
   def add_tags new_tags
-    new_tags.each do |t| 
-      if !tags.exists?(:name => t.name)
-        tags << t
+    new_tags.each do |t|
+      sanitized = ActionController::Base.helpers.sanitize(t)
+      if !tags.exists?(:name => sanitized.name)
+        tags << sanitized
       end
     end
   end
