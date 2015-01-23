@@ -8,7 +8,10 @@ class AnswersController < ApplicationController
     @answer = @question.answers.create answer_params
     @user = User.find session[:user_id]
     @answer.user = @user
-    @answer.save
+    if !@answer.save
+      flash[:error] = 'Cannot post empty answer'
+    end
+    
     redirect_to question_path @question
   end
 
