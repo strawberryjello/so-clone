@@ -7,16 +7,13 @@
           = msg
 
   .form-group
-    %p= f.label :title
-    %p= f.text_field :title, :class => 'form-control'
+    %p= f.text_field :title, :class => 'form-control', :placeholder => 'Title'
 
   .form-group
-    %p= f.label 'Body'
-    = f.cktext_area :text
+    = f.cktext_area :text, :ckeditor => {:toolbar => 'mini'}
 
   .form-group
     %p= label_tag 'Tags'
     %p= f.text_field :tag_string, :class => 'form-control'
 
   %p= f.submit 'Submit'
-

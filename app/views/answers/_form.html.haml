@@ -1,5 +1,6 @@
 -# build: see ActiveRecord::Associations::CollectionProxy in rails api
 = form_for [@question, @question.answers.build] do |f|
-  %p= f.text_area :body, :size => '75x10'
+  .form-group
+    = f.cktext_area :body, :ckeditor => {:toolbar => 'mini'}
+  
   %p= f.submit 'Post answer'
-
