@@ -15,7 +15,7 @@
 
       %td
         .container-fluid.bottom-margin
-          = @question.text
+          = sanitize @question.text
         .container-fluid.bottom-margin
           = render :partial => 'tags/tag', :collection => @question.tags
         .container-fluid.pull-left
