@@ -5,6 +5,10 @@ RSpec.describe Question do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:text) }
   end
+
+  describe 'callbacks' do
+    it { is_expected.to callback(:sanitize).before(:validation) }
+  end
   
   describe 'tagging' do
     it 'should add new tags to a question' do
