@@ -61,5 +61,8 @@ group :development, :test do
 
   # RSpec for tests
   gem 'rspec-rails'
+
+  # additional test matchers
+  gem 'shoulda-matchers', require: false
 end
 
