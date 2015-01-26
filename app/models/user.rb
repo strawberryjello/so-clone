@@ -16,10 +16,13 @@ class User < ActiveRecord::Base
 
 
   validates_presence_of :login, :password, :password_confirmation, :email
-  validates_length_of :login, :within => 3..40
   validates_length_of :password, :within => 8..40
   validates_uniqueness_of :login, :email
   validates_confirmation_of :password
+  validates_format_of :login, :with => /\A[a-z0-9. _-]{3,40}\Z/i
+
+
+  before_create :trim_username
 
 
   def self.authenticate login, pass
@@ -42,6 +45,12 @@ class User < ActiveRecord::Base
     self.password = self.password_confirmation = new_pass
     self.save
     Notifier.forgot_password(self.email, new_pass).deliver_now
+  end
+
+
+  # has own method for easier testing
+  def trim_username
+    login.strip! if login
   end
 
 
