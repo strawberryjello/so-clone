@@ -11,7 +11,7 @@ class Tag < ActiveRecord::Base
     tags = []
     tag_strings = tag_string.downcase.split ','
     tag_strings.each do |t|
-      t.strip!
+      t = ActionController::Base.helpers.sanitize(t).strip
       old_tag = find_by(:name => t)
       if old_tag
         tags << old_tag

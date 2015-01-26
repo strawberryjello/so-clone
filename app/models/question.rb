@@ -28,12 +28,10 @@ class Question < ActiveRecord::Base
   end
 
 
+  # consider putting in a Taggable module instead
   def add_tags new_tags
     new_tags.each do |t|
-      sanitized = ActionController::Base.helpers.sanitize(t)
-      if !tags.exists?(:name => sanitized.name)
-        tags << sanitized
-      end
+      tags << t unless tags.exists?(:name => t.name)
     end
   end
 
