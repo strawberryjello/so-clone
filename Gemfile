@@ -64,5 +64,8 @@ group :development, :test do
 
   # additional test matchers
   gem 'shoulda-matchers', require: false
+
+  # callback matchers
+  gem 'shoulda-callback-matchers'
 end
 
