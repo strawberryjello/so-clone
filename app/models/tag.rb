@@ -17,9 +17,7 @@ class Tag < ActiveRecord::Base
         tags << old_tag
       else
         new_tag = new(:name => t)
-        if new_tag.save
-          tags << new_tag
-        end
+        tags << new_tag if new_tag.save
       end
     end
     tags
