@@ -1,10 +1,13 @@
-23 jan 2015 (last updated)
+26 jan 2015 (last updated)
 -----------
 
 Issues
 ======
+- deprecation warnings for `to` in routes (while running rspec)
 - email address validation
 - deleting unused tags
+- sanitizing fails on tags
+  - moved to Tag.parse_tag_string, where there's already a check for existing tags
 - sanitizing user input from ckeditor
   - calls to sanitize in model prior to validation, using the sanitize tag in views
 - question and answer votes not being saved? -> verify
@@ -28,6 +31,7 @@ Tests
 - rspec-rails gem
 - models (unit)
   - validation
+  - callbacks
   - methods
 - controllers (functional)
   - logic
