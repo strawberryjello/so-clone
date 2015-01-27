@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
 
   include Voteable
+  include Mentionable
   
 
   attr_accessor :tag_string
@@ -20,6 +21,12 @@ class Question < ActiveRecord::Base
 
 
   before_validation :sanitize
+  before_save :substitute_mentions
+
+
+  def substitute_mentions
+    self.text = parse_mentions self.text
+  end
 
 
   def sanitize

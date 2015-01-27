@@ -1,6 +1,7 @@
 class Answer < ActiveRecord::Base
 
   include Voteable
+  include Mentionable
 
   belongs_to :question
   belongs_to :user
@@ -13,6 +14,12 @@ class Answer < ActiveRecord::Base
  
 
   before_validation :sanitize
+  before_save :substitute_mentions
+
+
+  def substitute_mentions
+    self.body = parse_mentions self.body
+  end
 
 
   def sanitize
