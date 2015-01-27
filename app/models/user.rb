@@ -3,6 +3,9 @@ require 'securerandom'
 
 class User < ActiveRecord::Base
 
+  include Rails.application.routes.url_helpers
+  
+
   attr_accessor :password, :password_confirmation
 
   
@@ -54,9 +57,8 @@ class User < ActiveRecord::Base
   end
 
 
-  # TODO: needs to be linked to the route
   def profile_url
-    "/users/#{self.id}/profile"
+    profile_user_path(self)
   end
 
 
