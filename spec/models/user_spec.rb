@@ -17,11 +17,11 @@ RSpec.describe User do
     it { is_expected.to validate_confirmation_of(:password) }
 
     # format validations
-    it { is_expected.to allow_value("my-User name_2015.").for(:login) }
-    it { is_expected.to allow_value("A_bc 1-2.3").for(:login) }
+    it { is_expected.to allow_value("my-Username_2015.").for(:login) }
+    it { is_expected.to allow_value("A_bc1-2.3").for(:login) }
     it { is_expected.to_not allow_value("Bo").for(:login) }
-    it { is_expected.to_not allow_value("This is absurdly long. You cannot remember this.").for(:login) }
-    it { is_expected.to_not allow_value("$p3@!<|ee+?").for(:login) }
+    it { is_expected.to_not allow_value("this-is-absurdly-long-you-cannot-remember-it").for(:login) }
+    it { is_expected.to_not allow_value("$p3@!< |ee+?").for(:login) }
   end
 
   describe 'callbacks' do

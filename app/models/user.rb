@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_length_of :password, :within => 8..40
   validates_uniqueness_of :login, :email
   validates_confirmation_of :password
-  validates_format_of :login, :with => /\A[a-z0-9. _-]{3,40}\Z/i
+  validates_format_of :login, :with => /\A[a-z0-9._-]{3,40}\Z/i
 
 
   before_create :trim_username
@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
   # has own method for easier testing
   def trim_username
     login.strip! if login
+  end
+
+
+  # TODO: needs to be linked to the route
+  def profile_url
+    "/users/#{self.id}/profile"
   end
 
 
