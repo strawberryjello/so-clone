@@ -8,11 +8,15 @@ class AnswersController < ApplicationController
     @answer = @question.answers.create answer_params
     @user = User.find session[:user_id]
     @answer.user = @user
-    if !@answer.save
-      flash[:error] = 'Cannot post empty answer'
+
+    respond_to do |format| 
+      unless @answer.save
+        flash[:error] = 'Cannot post empty answer'
+      end
+      
+      format.html { redirect_to question_path @question }
+      format.js {}
     end
-    
-    redirect_to question_path @question
   end
 
 

@@ -1,5 +1,5 @@
 -# build: see ActiveRecord::Associations::CollectionProxy in rails api
-= form_for [@question, @question.answers.build] do |f|
+= form_for [@question, @question.answers.build], :remote => true do |f|
   .form-group
     = f.cktext_area :body, :ckeditor => {:toolbar => 'mini'}
   
