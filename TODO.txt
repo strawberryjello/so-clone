@@ -1,8 +1,9 @@
-26 jan 2015 (last updated)
+28 jan 2015 (last updated)
 -----------
 
 Issues
 ======
+- new answer ajax submission -> empty answer results in http 500 error
 - deprecation warnings for `to` in routes (while running rspec)
 - email address validation
 - deleting unused tags
@@ -26,9 +27,15 @@ Issues
 - rendering newlines in question/answer text (use an editor (gem))
 - adding foreign keys to existing tables (drop/create is fine for dev db)
 
+JavaScript
+==========
+- answer form
+- upvote/downvote buttons
+
 Tests
 =====
 - rspec-rails gem
+- modules
 - models (unit)
   - validation
   - callbacks
