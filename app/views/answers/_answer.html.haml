@@ -1,23 +1,20 @@
-%table.table.table-hover
-  %tr
-    %td.vote-box
-      = link_to question_answer_upvotes_path(@question, answer), method: :post do
-        %span.arrow-up
-      .votes-tally.text-center
-        = answer.votes
-      = link_to question_answer_downvotes_path(@question, answer), method: :post do
-        %span.arrow-down
+%tr
+  %td.vote-box
+    = link_to question_answer_upvotes_path(@question, answer), method: :post do
+      %span.arrow-up
+    .votes-tally.text-center
+      = answer.votes
+    = link_to question_answer_downvotes_path(@question, answer), method: :post do
+      %span.arrow-down
 
-    %td
-      .container-fluid.bottom-margin
-        = sanitize answer.body
+  %td
+    .container-fluid.bottom-margin
+      = sanitize answer.body
 
-      .container-fluid.pull-left
-        - if session[:user_id]
-          = link_to 'delete', [answer.question, answer], method: :delete, data: {:confirm => 'Are you sure?'}
+    .container-fluid.pull-left
+      - if session[:user_id]
+        = link_to 'delete', [answer.question, answer], method: :delete, data: {:confirm => 'Are you sure?'}
 
-      .container-fluid.pull-left
-        answered by
-        = link_to answer.user.login, profile_user_path(answer.user)
-
-%hr
+    .container-fluid.pull-left
+      answered by
+      = link_to answer.user.login, profile_user_path(answer.user)
