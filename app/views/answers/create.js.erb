@@ -1,1 +1,2 @@
-$("#js-answers").html("<%=raw escape_javascript(render('answer', :locals => {:question =>@question})) %>");
+$("#js-answers").html("<%=raw escape_javascript(render('answer', :locals => {:question => @question})) %>");
+$('#cke_1_contents iframe').contents().find('body').html("")
