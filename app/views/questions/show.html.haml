@@ -1,3 +1,5 @@
+#js-question-errors
+
 %h3= @question.title
 
 %hr
@@ -6,9 +8,9 @@
   %table.table.table-hover
     %tr
       %td.vote-box
-        = link_to question_upvotes_path(@question), method: :post do
+        = link_to question_upvotes_path(@question), :method => :post, :remote => true do
           %span.arrow-up
-        .votes-tally.text-center
+        #js-question-votes.votes-tally.text-center
           = @question.votes
         = link_to question_downvotes_path(@question), method: :post do
           %span.arrow-down
