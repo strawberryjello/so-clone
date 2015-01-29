@@ -10,12 +10,17 @@ class AnswersController < ApplicationController
     @answer.user = @user
 
     respond_to do |format| 
-      unless @answer.save
-        flash[:error] = 'Cannot post empty answer'
+      if @answer.save
+        format.html { redirect_to @question }
+        format.js {}
+      else
+        format.html do
+          flash[:error] = 'Cannot post question'
+          redirect_to @question
+        end
+        # render a different .js.erb
+        format.js { render 'create_error' }
       end
-      
-      format.html { redirect_to question_path @question }
-      format.js {}
     end
   end
 

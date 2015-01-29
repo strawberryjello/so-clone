@@ -31,17 +31,14 @@
 
 %h3 Answers
 
-#js-answers.container-fluid.top-margin
-  = render 'answers/answer', :locals => {:question => @question}
-  -#%table#js-answers.table.table-hover
-    -#= render @question.answers
+.container-fluid.top-margin
+  %table#js-answers.table.table-hover
+    = render @question.answers
 
 %hr
 
 %h4 Your Answer
 
+#js-answer-errors
+
 = render 'answers/form'
-
-
-
-
