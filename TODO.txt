@@ -1,9 +1,13 @@
-28 jan 2015 (last updated)
+29 jan 2015 (last updated)
 -----------
 
 Issues
 ======
-- new answer ajax submission -> empty answer results in http 500 error
+- ajax error CSS
+- new answer ajax submission
+  - empty answer results in http 500 error -> ajax not completed (ie, ajax:complete not triggered)
+    - separate .js.erb for error display
+  - no JS for submitting an answer while logged out (replacement for redirect in ApplicationController.loginRequired)
 - deprecation warnings for `to` in routes (while running rspec)
 - email address validation
 - deleting unused tags
