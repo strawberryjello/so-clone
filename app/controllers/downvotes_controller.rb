@@ -37,15 +37,29 @@ class DownvotesController < ApplicationController
     @user = User.find session[:user_id]
 
     if Downvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
-      flash[:error] = 'You have already downvoted that answer'
+      respond_to do |format|
+        format.html do
+          flash[:error] = 'You have already downvoted that answer'
+          redirect_to question_path @question
+        end
+
+        format.js { render 'downvote_answer_error' }
+      end
     else
-      flash[:message] = 'Answer downvoted'
       @downvote = @answer.downvotes.create
       @downvote.user = @user
       @downvote.save
+
+      respond_to do |format|
+        format.html do
+          flash[:message] = 'Answer downvoted'
+          redirect_to question_path @question
+        end
+
+        format.js { render 'answers/vote_answer' }
+      end
     end
     
-    redirect_to question_path @question
   end
 
 end
