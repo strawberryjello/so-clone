@@ -1,18 +1,20 @@
 $(document).ready(function(){
-  $('#js-upvote-question').on('click', function(e){
+
+  $('table').on('click', 'a[id^="js-upvote"]', function(e) {
     e.preventDefault();
 
     var $link = $(this),
-        url = $link.prop('href');
+        url = $link.prop('href'),
+        voteId = '#' + $(this).parent().children('div').attr('id');
 
     $.ajax({
       url: url,
       type: 'post',
       success: function(votes){
-        $('#js-question-votes').html(votes);
+        $(voteId).html(votes);
       },
       error: function(){
-        alert("You already upvoted this question");
+        alert('You have already upvoted');
       }
     });
   });

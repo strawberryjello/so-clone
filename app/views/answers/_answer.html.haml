@@ -3,7 +3,7 @@
 
 %tr
   %td.vote-box
-    = link_to question_answer_upvotes_path(@question, answer), :method => :post, :remote => true do
+    = link_to question_answer_upvotes_path(@question, answer), :id => "js-upvote-answer#{answer.id}" do
       %span.arrow-up
     .votes-tally.text-center{:id => "js-answer#{answer.id}-votes"}
       = answer.votes
