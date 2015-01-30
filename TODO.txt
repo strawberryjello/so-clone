@@ -1,9 +1,9 @@
-29 jan 2015 (last updated)
+30 jan 2015 (last updated)
 -----------
 
 Issues
 ======
-- ajax error CSS
+- ajax error CSS, duplication
 - new answer ajax submission
   - empty answer results in http 500 error -> ajax not completed (ie, ajax:complete not triggered)
     - separate .js.erb for error display

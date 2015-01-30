@@ -27,7 +27,7 @@ class UpvotesController < ApplicationController
           redirect_to @question
         end
         
-        format.js {}
+        format.js { render 'questions/vote_question' }
       end
     end
     
@@ -39,15 +39,29 @@ class UpvotesController < ApplicationController
     @user = User.find session[:user_id]
 
     if Upvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
-      flash[:error] = 'You have already upvoted this answer'
+      respond_to do |format|
+        format.html do
+          flash[:error] = 'You have already upvoted this answer'
+          redirect_to question_path @question
+        end
+
+        format.js { render 'upvote_answer_error' }
+      end
     else
-      flash[:message] = 'Answer upvoted'
       @upvote = @answer.upvotes.create
       @upvote.user = @user
       @upvote.save
+
+      respond_to do |format|
+        format.html do
+          flash[:message] = 'Answer upvoted'
+          redirect_to question_path @question
+        end
+
+        format.js { render 'answers/vote_answer' }
+      end
     end
     
-    redirect_to question_path @question
   end
 
 end

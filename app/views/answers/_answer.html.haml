@@ -3,14 +3,17 @@
 
 %tr
   %td.vote-box
-    = link_to question_answer_upvotes_path(@question, answer), method: :post do
+    = link_to question_answer_upvotes_path(@question, answer), :method => :post, :remote => true do
       %span.arrow-up
-    .votes-tally.text-center
+    .votes-tally.text-center{:id => "js-answer#{answer.id}-votes"}
       = answer.votes
-    = link_to question_answer_downvotes_path(@question, answer), method: :post do
+    = link_to question_answer_downvotes_path(@question, answer), method: :post, :remote => true do
       %span.arrow-down
 
   %td
+    .container-fluid{:id => "js-answer#{answer.id}-errors"}
+
+    
     .container-fluid.bottom-margin
       = sanitize answer.body
 
