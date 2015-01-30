@@ -4,6 +4,7 @@
 Issues
 ======
 - ajax error CSS, duplication
+  - upvote/downvote jQuery code is duplicated
 - new answer ajax submission
   - empty answer results in http 500 error -> ajax not completed (ie, ajax:complete not triggered)
     - separate .js.erb for error display
