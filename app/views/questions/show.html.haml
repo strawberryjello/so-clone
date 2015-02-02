@@ -12,7 +12,7 @@
           %span.arrow-up
         #js-question-votes.votes-tally.text-center
           = @question.votes
-        = link_to question_downvotes_path(@question), :id => 'js-downvote-question' do
+        = link_to question_downvotes_path(@question), :class => 'js-vote-button' do
           %span.arrow-down
 
       %td
