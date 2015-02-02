@@ -4,10 +4,7 @@
 Issues
 ======
 - problems with before_action controller callbacks (login_required) while logged out
-  - upvote/downvote: login page gets stuffed into vote tally div
   - new answer: nothing happens (routing problem, see old issue)
-- ajax error CSS, duplication
-  - upvote/downvote jQuery code is duplicated
 - deprecation warnings for `to` in routes (while running rspec)
 - email address validation
 - deleting unused tags
@@ -156,3 +153,7 @@ Old issues
   - no JS for submitting an answer while logged out (replacement for redirect in ApplicationController.loginRequired)
 - new answer doesn't require login (problem with request.fullpath in login_required action)
   - now that it's required, has routing problem (offline form submission creates a GET request even if generated form specifies POST, so not routed correctly)
+- problems with before_action controller callbacks (login_required) while logged out
+  - upvote/downvote: login page gets stuffed into vote tally div
+- ajax error CSS, duplication
+  - upvote/downvote jQuery code is duplicated
