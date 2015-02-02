@@ -7,7 +7,15 @@ class UpvotesController < ApplicationController
     @question = Question.find params[:question_id]
     @user = User.find session[:user_id]
 
-    if Upvote.exists?(:voteable_id => @question.id, :user_id => @user.id)
+    if Downvote.exists?(:voteable_id => @question.id, :user_id => @user.id)
+      Downvote.cancel(@question.id, @user.id)
+
+      if request.xhr?
+        render :text => @question.votes
+      else
+        redirect_to @question
+      end
+    elsif Upvote.exists?(:voteable_id => @question.id, :user_id => @user.id)
       error_msg = 'You already upvoted this question'
 
       if request.xhr?
