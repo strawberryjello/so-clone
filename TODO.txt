@@ -1,36 +1,16 @@
-30 jan 2015 (last updated)
+02 feb 2015 (last updated)
 -----------
 
 Issues
 ======
+- problems with before_action controller callbacks (login_required) while logged out
+  - upvote/downvote: login page gets stuffed into vote tally div
+  - new answer: nothing happens (routing problem, see old issue)
 - ajax error CSS, duplication
   - upvote/downvote jQuery code is duplicated
-- new answer ajax submission
-  - empty answer results in http 500 error -> ajax not completed (ie, ajax:complete not triggered)
-    - separate .js.erb for error display
-  - no JS for submitting an answer while logged out (replacement for redirect in ApplicationController.loginRequired)
 - deprecation warnings for `to` in routes (while running rspec)
 - email address validation
 - deleting unused tags
-- sanitizing fails on tags
-  - moved to Tag.parse_tag_string, where there's already a check for existing tags
-- sanitizing user input from ckeditor
-  - calls to sanitize in model prior to validation, using the sanitize tag in views
-- question and answer votes not being saved? -> verify
-  - problem with variable scope, no longer relevant due to updated voting architecture
-- user ID not being saved in answers table
-  - logged in user not being associated to newly created answer in controller
-- CSS classes with bad names (.bottom-margin, .top-margin)
-- delete answer confirmation popup appears more than once
-  - broken HAML formatting in application.html.haml put the JS includes in the body, which forced the page to reload the popup JS several times
-- mailer can't parse HAML files
-- new answer doesn't require login (problem with request.fullpath in login_required action)
-  - now that it's required, has routing problem (offline form submission creates a GET request even if generated form specifies POST, so not routed correctly)
-- no validation errors for new answer (what object do you refer to? -> build creates the empty object in the answers collection, not yet saved)
-  - just used a flash error message when save fails
-- delete question -> cascade to answers
-- rendering newlines in question/answer text (use an editor (gem))
-- adding foreign keys to existing tables (drop/create is fine for dev db)
 
 JavaScript
 ==========
@@ -150,3 +130,29 @@ Advanced features
 - user mentions
 - best answer
 - comments (questions and answers)
+
+Old issues
+==========
+- sanitizing fails on tags
+  - moved to Tag.parse_tag_string, where there's already a check for existing tags
+- sanitizing user input from ckeditor
+  - calls to sanitize in model prior to validation, using the sanitize tag in views
+- question and answer votes not being saved? -> verify
+  - problem with variable scope, no longer relevant due to updated voting architecture
+- user ID not being saved in answers table
+  - logged in user not being associated to newly created answer in controller
+- CSS classes with bad names (.bottom-margin, .top-margin)
+- delete answer confirmation popup appears more than once
+  - broken HAML formatting in application.html.haml put the JS includes in the body, which forced the page to reload the popup JS several times
+- mailer can't parse HAML files
+- no validation errors for new answer (what object do you refer to? -> build creates the empty object in the answers collection, not yet saved)
+  - just used a flash error message when save fails
+- delete question -> cascade to answers
+- rendering newlines in question/answer text (use an editor (gem))
+- adding foreign keys to existing tables (drop/create is fine for dev db)
+- new answer ajax submission
+  - empty answer results in http 500 error -> ajax not completed (ie, ajax:complete not triggered)
+    - separate .js.erb for error display
+  - no JS for submitting an answer while logged out (replacement for redirect in ApplicationController.loginRequired)
+- new answer doesn't require login (problem with request.fullpath in login_required action)
+  - now that it's required, has routing problem (offline form submission creates a GET request even if generated form specifies POST, so not routed correctly)
