@@ -44,7 +44,15 @@ class DownvotesController < ApplicationController
     @answer = Answer.find params[:answer_id]
     @user = User.find session[:user_id]
 
-    if Downvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
+    if Upvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
+      Upvote.cancel(@answer.id, @user.id)
+      
+      if request.xhr?
+        render :text => @answer.votes
+      else
+        redirect_to @question
+      end
+    elsif Downvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
       error_msg = 'You already downvoted that answer'
 
       if request.xhr?
