@@ -8,9 +8,16 @@ class ApplicationController < ActionController::Base
       return true
     end
 
-    session[:return_to] = request.fullpath
-    flash[:warning] = 'Please log in to continue'
-    redirect_to login_path
+    error_msg = 'Please log in'
+
+    if request.xhr?
+      render :text => error_msg, :status => :internal_server_error
+    else
+      session[:return_to] = request.fullpath
+      flash[:warning] = error_msg
+      redirect_to login_path
+    end
+    
     return false
   end
 
