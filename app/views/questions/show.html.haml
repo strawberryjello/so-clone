@@ -8,7 +8,7 @@
   %table.table.table-hover
     %tr
       %td.vote-box
-        = link_to question_upvotes_path(@question), :id => 'js-upvote-question' do
+        = link_to question_upvotes_path(@question), :class => 'js-vote-button' do
           %span.arrow-up
         #js-question-votes.votes-tally.text-center
           = @question.votes

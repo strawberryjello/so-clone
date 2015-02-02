@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
-  $('table').on('click', 'a[id^="js-upvote"]', function(e) {
+  $('table').on('click', 'a[class^="js-vote-button"]', function(e) {
     e.preventDefault();
 
     var $link = $(this),
         url = $link.prop('href'),
-        voteId = '#' + $(this).parent().children('div').attr('id');
+        voteId = '#' + $(this).parent().children('.votes-tally').attr('id');
 
     $.ajax({
       url: url,
@@ -13,8 +13,8 @@ $(document).ready(function(){
       success: function(votes){
         $(voteId).html(votes);
       },
-      error: function(){
-        alert('You have already upvoted');
+      error: function(xhr, status, error){
+        alert(xhr.responseText);
       }
     });
   });
