@@ -10,31 +10,19 @@ class DownvotesController < ApplicationController
     if Upvote.exists?(:voteable_id => @question.id, :user_id => @user.id)
       Upvote.cancel(@question.id, @user.id)
 
-      if request.xhr?
-        render :text => @question.votes
-      else
-        redirect_to @question
-      end
+      resolve_update @question.votes, @question
+      
     elsif Downvote.exists?(:voteable_id => @question.id, :user_id => @user.id)
       error_msg = 'You already downvoted this question'
       
-      if request.xhr?
-        render :text => error_msg, :status => :internal_server_error
-      else
-        flash[:error] = error_msg
-        redirect_to question_path @question
-      end
+      resolve_duplicate error_msg
+      
     else
       @downvote = @question.downvotes.create
       @downvote.user = @user
       @downvote.save
 
-      if request.xhr?
-        render :text => @question.votes
-      else
-        flash[:message] = 'Question downvoted'
-        redirect_to question_path @question
-      end
+      resolve_update @question.votes, @question
     end
     
   end
@@ -46,34 +34,46 @@ class DownvotesController < ApplicationController
 
     if Upvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
       Upvote.cancel(@answer.id, @user.id)
+
+      resolve_update @answer.votes, @question
       
-      if request.xhr?
-        render :text => @answer.votes
-      else
-        redirect_to @question
-      end
     elsif Downvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
       error_msg = 'You already downvoted that answer'
 
-      if request.xhr?
-        render :text => error_msg, :status => :internal_server_error
-      else
-        flash[:error] = 'You already downvoted that answer'
-        redirect_to question_path @question
-      end
+      resolve_duplicate error_msg
+      
     else
       @downvote = @answer.downvotes.create
       @downvote.user = @user
       @downvote.save
 
-      if request.xhr?
-        render :text => @answer.votes
-      else
-        flash[:message] = 'Answer downvoted'
-        redirect_to question_path @question
-      end
+      resolve_update @answer.votes, @question
     end
     
+  end
+
+
+
+
+
+  private
+
+  def resolve_duplicate error_msg
+    if request.xhr?
+      render :text => error_msg, :status => :internal_server_error
+    else
+      flash[:error] = error_msg
+      redirect_to @question
+    end
+  end
+
+
+  def resolve_update votes, redirect_instance
+    if request.xhr?
+      render :text => votes
+    else
+      redirect_to redirect_instance
+    end
   end
 
 end
