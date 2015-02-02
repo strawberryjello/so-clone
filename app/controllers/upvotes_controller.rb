@@ -7,11 +7,13 @@ class UpvotesController < ApplicationController
     @question = Question.find params[:question_id]
     @user = User.find session[:user_id]
 
+    error_msg = 'You already upvoted this question'
+
     if Upvote.exists?(:voteable_id => @question.id, :user_id => @user.id)
       if request.xhr?
-        render :nothing => true, :status => :internal_server_error
+        render :text => error_msg, :status => :internal_server_error
       else
-        flash[:error] = 'You already upvoted this question'
+        flash[:error] = error_msg
         redirect_to @question
       end
     else
@@ -33,11 +35,13 @@ class UpvotesController < ApplicationController
     @answer = Answer.find params[:answer_id]
     @user = User.find session[:user_id]
 
+    error_msg = 'You already upvoted this answer'
+
     if Upvote.exists?(:voteable_id => @answer.id, :user_id => @user.id)
       if request.xhr?
-        render :nothing => true, :status => :internal_server_error
+        render :text => error_msg, :status => :internal_server_error
       else
-        flash[:error] = 'You have already upvoted this answer'
+        flash[:error] = error_msg
         redirect_to question_path @question
       end
     else
