@@ -2,14 +2,14 @@ class AnswersController < ApplicationController
 
   before_action :login_required
 
-  
+
   def create
     @question = Question.find params[:question_id]
     @answer = @question.answers.create answer_params
     @user = User.find session[:user_id]
     @answer.user = @user
 
-    respond_to do |format| 
+    respond_to do |format|
       if @answer.save
         format.html { redirect_to @question }
         format.js {}
@@ -41,5 +41,5 @@ class AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:body)
   end
-  
+
 end
