@@ -8,7 +8,7 @@ gem 'dotenv-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # postgresql
-gem 'pg'
+gem 'pg', '~> 0.18.1'
 # HAML for views
 gem 'haml'
 # Sprockets integration
