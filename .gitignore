@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+# ignore local gems
+/vendor/bundle
+
 # ignore emacs backup files
 *~
 
