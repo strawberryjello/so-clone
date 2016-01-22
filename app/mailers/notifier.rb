@@ -1,5 +1,5 @@
 class Notifier < ApplicationMailer
-  
+
   def forgot_password to, pass, sent_at = Time.now
     @pass = pass
     mail(
@@ -9,5 +9,5 @@ class Notifier < ApplicationMailer
          :date => sent_at
          )
   end
-  
+
 end
