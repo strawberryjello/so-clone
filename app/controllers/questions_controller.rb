@@ -1,11 +1,11 @@
 class QuestionsController < ApplicationController
 
   before_action :login_required, :except => [:index, :show]
-  
+
   def index
     @questions = Question.all
   end
-  
+
 
   def new
     @question = Question.new
@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     session[:return_to] = request.fullpath
   end
 
-  
+
   def create
     user = User.find session[:user_id]
     @question = user.questions.create question_params
