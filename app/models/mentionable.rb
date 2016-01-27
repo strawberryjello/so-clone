@@ -15,9 +15,11 @@ module Mentionable
   end
 
 
+
   private
 
   def create_link href, body
     "<a href='#{href}'>#{body}</a>"
   end
+
 end
