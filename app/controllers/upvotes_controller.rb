@@ -26,7 +26,7 @@ class UpvotesController < ApplicationController
     end
   end
 
-  
+
   def upvote_answer
     @question = Question.find params[:question_id]
     @answer = Answer.find params[:answer_id]
@@ -41,7 +41,7 @@ class UpvotesController < ApplicationController
       error_msg = 'You already upvoted that answer'
 
       resolve_duplicate error_msg
-      
+
     else
       @upvote = @answer.upvotes.create
       @upvote.user = @user
