@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       flash[:warning] = error_msg
       redirect_to login_path
     end
-    
+
     return false
   end
 
