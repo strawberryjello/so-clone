@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def new
     @user = User.new
   end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @questions = @user.questions
   end
 
-  
+
   def login
   end
 
@@ -48,10 +48,10 @@ class UsersController < ApplicationController
     redirect_to questions_path
   end
 
-  
+
   def forgot_password
   end
-  
+
   def do_forgot_password
     if request.post?
       user = User.find_by(:email => params[:email])
@@ -64,10 +64,10 @@ class UsersController < ApplicationController
     end
   end
 
-  
+
   def change_password
   end
-  
+
   def do_change_password
     @user = User.find session[:user_id]
     if request.post?
