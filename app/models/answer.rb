@@ -8,10 +8,10 @@ class Answer < ActiveRecord::Base
 
   has_many :upvotes, as: :voteable
   has_many :downvotes, as: :voteable
-  
+
 
   validates_presence_of :body
- 
+
 
   before_validation :sanitize
   before_save :substitute_mentions
