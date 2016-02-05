@@ -25,4 +25,5 @@ class Answer < ActiveRecord::Base
   def sanitize
     self.body = ActionController::Base.helpers.sanitize(self.body)
   end
+
 end
