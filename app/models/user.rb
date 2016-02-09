@@ -67,4 +67,5 @@ class User < ActiveRecord::Base
   def self.encrypt pass, salt
     Digest::SHA1.hexdigest pass + salt
   end
+
 end
