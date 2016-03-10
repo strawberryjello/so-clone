@@ -20,8 +20,4 @@ RSpec.describe Question do
       expect(question.tags).to include(t1)
     end
   end
-
-  describe 'not yet implemented' do
-    it 'should implement this'
-  end
 end
