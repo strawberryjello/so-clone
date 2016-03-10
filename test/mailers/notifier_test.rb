@@ -18,7 +18,7 @@ class NotifierTest < ActionMailer::TestCase
   end
 
   test 'notifier: verify recipient' do
-    assert_equal [@to], @email.to
+    assert_equal [], @email.to
   end
 
   test 'notifier: verify subject' do
