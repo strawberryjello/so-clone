@@ -14,7 +14,7 @@ class NotifierTest < ActionMailer::TestCase
   end
 
   test 'notifier: verify from address' do
-    assert_equal ['no-reply@soclone.com'], @email.from
+    assert_equal [''], @email.from
   end
 
   test 'notifier: verify recipient' do
