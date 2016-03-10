@@ -17,8 +17,11 @@ RSpec.describe Question do
       
       question.add_tags [t1]
 
-      expect(question.tags).to include('')
+      expect(question.tags).to include(t1)
     end
   end
 
+  describe 'not yet implemented' do
+    it 'should implement this'
+  end
 end
